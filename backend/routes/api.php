@@ -10,6 +10,7 @@ use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Api\LaporanApiController;
 use App\Http\Controllers\Api\ImportApiController;
 use App\Http\Controllers\Api\ProposalController;
+use App\Http\Controllers\Api\MagangApiController;
 
 Route::post('/auth/register', [AuthController::class, 'register']);
 Route::post('/auth/login', [AuthController::class, 'login']);
@@ -57,6 +58,13 @@ Route::middleware('auth:sanctum')->group(function () {
 
         Route::post('proposal/{id}/review', [ProposalController::class, 'review']);
         Route::post('proposal/{id}/sign', [ProposalController::class, 'sign']);
+
+        Route::post('magang', [MagangApiController::class, 'adminStore']);
+        Route::put('magang/{id}', [MagangApiController::class, 'adminUpdate']);
+        Route::delete('magang/{id}', [MagangApiController::class, 'adminDestroy']);
+        Route::get('magang-applications', [MagangApiController::class, 'adminApplications']);
+        Route::put('magang-applications/{id}', [MagangApiController::class, 'adminUpdateApplication']);
+        Route::get('magang-applications/{id}/download-cv', [MagangApiController::class, 'adminDownloadCv']);
     });
 
     Route::get('kabinet', [KabinetApiController::class, 'index']);
@@ -87,3 +95,7 @@ Route::prefix('chatbot')->group(function () {
 
 Route::get('agenda', [AgendaApiController::class, 'index']);
 Route::get('agenda/terdekat', [AgendaApiController::class, 'terdekat']);
+
+Route::get('magang', [MagangApiController::class, 'publicIndex']);
+Route::get('magang/{id}', [MagangApiController::class, 'publicShow']);
+Route::post('magang/{id}/apply', [MagangApiController::class, 'apply']);

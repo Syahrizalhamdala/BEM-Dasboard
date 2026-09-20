@@ -5,7 +5,7 @@ import { useAuth } from '../../context/AuthContext';
 import {
   LayoutDashboard, Users, CalendarCheck, ClipboardCheck,
   FileSearch, FileCheck, PenLine, Bot, BarChart3,
-  Database, Settings2, Menu, X, LogOut
+  Database, Settings2, Menu, X, LogOut, Briefcase
 } from 'lucide-react';
 import { getAgenda } from '../../api/agendaApi';
 
@@ -31,6 +31,7 @@ const menuGroups = [
     items: [
       { path: '/approval', label: 'Tanda Tangan', icon: PenLine },
       { path: '/chatbot', label: 'Chatbot', icon: Bot },
+      { path: '/admin/magang', label: 'Program Magang', icon: Briefcase },
       { path: '/laporan', label: 'Laporan', icon: BarChart3 },
       { path: '/import-data', label: 'Import Data', icon: Database },
       { path: '/pengaturan', label: 'Pengaturan', icon: Settings2 },

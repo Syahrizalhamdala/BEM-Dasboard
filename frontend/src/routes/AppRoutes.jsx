@@ -7,6 +7,8 @@ import DashboardLayout from "../layouts/DashboardLayout";
 import GuestRoute from "../components/auth/GuestRoute";
 import Login from "../pages/Auth/Login";
 import Register from "../pages/Auth/Register";
+import PublicMagang from "../pages/Magang/PublicMagang";
+import Home from "../pages/Home/Home";
 
 const Dashboard = lazy(() => import("../pages/Dashboard/Dashboard"));
 const Anggota = lazy(() => import("../pages/Anggota/Anggota"));
@@ -19,6 +21,7 @@ const Pengaturan = lazy(() => import("../pages/Pengaturan/Pengaturan"));
 const ProposalCheck = lazy(() => import("../pages/ProposalCheck/ProposalCheck"));
 const ReviewQueue = lazy(() => import("../pages/ProposalCheck/ReviewQueue"));
 const ApprovalSign = lazy(() => import("../pages/ProposalCheck/ApprovalSign"));
+const AdminMagang = lazy(() => import("../pages/Magang/AdminMagang"));
 
 const pageTitles = {
   '/dashboard': 'Dashboard',
@@ -32,6 +35,7 @@ const pageTitles = {
   '/proposal-check': 'Cek Proposal',
   '/review-proposal': 'Review Proposal',
   '/approval': 'Tanda Tangan',
+  '/admin/magang': 'Program Magang',
 };
 
 function LoadingFallback() {
@@ -53,7 +57,8 @@ function AppRoutes() {
           <Routes>
           <Route path="/login" element={<GuestRoute><Login /></GuestRoute>} />
           <Route path="/register" element={<GuestRoute><Register /></GuestRoute>} />
-          <Route path="/" element={<Navigate to="/login" replace />} />
+          <Route path="/magang" element={<PublicMagang />} />
+          <Route path="/" element={<Home />} />
           <Route
             path="/dashboard"
             element={
@@ -77,6 +82,7 @@ function AppRoutes() {
             { path: "/laporan", Component: Laporan },
             { path: "/import-data", Component: ImportData },
             { path: "/pengaturan", Component: Pengaturan },
+            { path: "/admin/magang", Component: AdminMagang },
           ].map(({ path, Component }) => (
             <Route
               key={path}

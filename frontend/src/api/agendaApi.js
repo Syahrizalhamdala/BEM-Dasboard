@@ -5,6 +5,11 @@ export async function getAgenda() {
   return data.data;
 }
 
+export async function getTerdekatAgenda() {
+  const { data } = await apiClient.get('/agenda/terdekat');
+  return data.data;
+}
+
 export async function tambahAgenda(data) {
   const { data: res } = await apiClient.post('/agenda', data);
   return res.data;

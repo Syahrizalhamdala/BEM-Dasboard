@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { HiPlus, HiCalendar, HiClock, HiLocationMarker, HiPencil, HiTrash, HiX, HiQrcode, HiEye } from 'react-icons/hi';
+import { HiPlus, HiClock, HiLocationMarker, HiPencil, HiTrash, HiX, HiQrcode, HiEye } from 'react-icons/hi';
 import { Card, Badge } from '../../components/ui';
 import AgendaQRCodeModal from '../../components/agenda/AgendaQRCodeModal';
 import { useAuth } from '../../context/AuthContext';
